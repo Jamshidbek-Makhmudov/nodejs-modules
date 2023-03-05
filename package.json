@@ -1,0 +1,22 @@
+{
+  "name": "first_module",
+  "version": "1.0.0",
+  "description": "Nodejs beginner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Jamshidbek Makhmudov",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "install": "^0.13.0",
+    "jquery": "^3.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
