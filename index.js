@@ -1,18 +1,49 @@
 //nodejsni yana 1ta plus tarafi modulniy struktura deyiladi;
 // console.log("hello", __dirname) // faly qayerdaligini korib beradi
 const http = require("http")
+const fs = require("fs")
+const path = require("path")
+
 const server = http.createServer((req, res) => {
   if (req.method === "GET") {
-    //http request.method lari biz bilgan get,post... methodlaridir
-    res.writeHead(200, { "Content-Type": "text/html" }) //wrtiteHead methodi bizga yuborayotgan datamizni nima ekanli
-    //3ta parametr qabul qiladi, 1-number, 2-optionlan, 3-header object ichida
-    res.end(`
-    <h1 >send us email</h1>
-    <form method="post" action="/">
-    <input name="email type="email" placeholder="enter your email" />
-    <button type="submit">send</button>
-    </form>
-    `)
+    res.writeHead(200, { "Content-Type": "text/html" })
+
+    if (req.url === "/") {
+      fs.readFile(
+        path.join(__dirname, "templates", "index.html"),
+        "utf-8",
+        (err, content) => {
+          if (err) throw new Error()
+          res.end(content)
+        }
+      )
+    } else if (req.url === "/about") {
+      fs.readFile(
+        path.join(__dirname, "templates", "index.html"),
+        "utf-8",
+        (err, content) => {
+          if (err) throw new Error()
+          res.end(content)
+        }
+      )
+    } else if (req.url === "/contact") {
+      fs.readFile(
+        path.join(__dirname, "templates", "index.html"),
+        "utf-8",
+        (err, content) => {
+          if (err) throw new Error()
+          res.end(content)
+        }
+      )
+    } else if (req.url === "/api/admin") {
+      res.writeHead(200, { "Content-Type": "text/json" })
+      const admin = {
+        name: "Jamshidbek ",
+        surname: "Makhmudov",
+        job: "full-stack developer",
+      }
+      res.end(JSON.stringify(admin))
+    }
   } else if (req.method === "POST") {
     const email = []
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" }) //wrtiteHead methodi bizga yuborayotgan datamizni nima ekanli
